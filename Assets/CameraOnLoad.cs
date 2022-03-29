@@ -14,7 +14,9 @@ public class CameraOnLoad : MonoBehaviour
         {
             for(int j = -10; j < 10; j++)
             {
-                Instantiate(go, new Vector3(i*1.7f + Random.Range(-0.3f, 0.3f), j * 1.7f + Random.Range(-0.3f, 0.3f), 1), new Quaternion());                
+                var newgo = Instantiate(go, new Vector3(i*1.7f + Random.Range(-0.3f, 0.3f), j * 1.7f + Random.Range(-0.3f, 0.3f), 1), new Quaternion());
+                SpriteRenderer sprite = (SpriteRenderer)newgo.gameObject.GetComponent<SpriteRenderer>();
+                sprite.color = new Color(Random.value, Random.value, Random.value, 1f);                
             }
         }
         

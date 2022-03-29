@@ -53,7 +53,7 @@ public class Circle : MonoBehaviour
         //Camera.main.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
         Camera.main.GetComponent<CameraOnLoad>().track = this.gameObject;
         Rigidbody2D rigidbody = (Rigidbody2D)this.gameObject.GetComponent<Rigidbody2D>();
-        rigidbody.AddForce(new Vector2(Random.Range(-100, 100), Random.Range(-100, 100)));
+        rigidbody.AddForce(new Vector2(Random.Range(-10000, 10000), Random.Range(-100, 100)));
         //Debug.Log("Klikk");
     }
 }

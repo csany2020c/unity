@@ -10,11 +10,11 @@ public class CameraOnLoad : MonoBehaviour
     void Start()
     {
         GameObject go = (GameObject)Resources.Load("PreFab/Circle", typeof(GameObject));
-        for (int i = 0; i < 10; i++)
+        for (int i = -10; i < 10; i++)
         {
-            for(int j = 0; j < 10; j++)
+            for(int j = -10; j < 10; j++)
             {
-                Instantiate(go, new Vector3(i*1.7f,j * 1.7f, 1), new Quaternion());                
+                Instantiate(go, new Vector3(i*1.7f + Random.Range(-0.3f, 0.3f), j * 1.7f + Random.Range(-0.3f, 0.3f), 1), new Quaternion());                
             }
         }
         

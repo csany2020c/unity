@@ -7,14 +7,17 @@ public class Circle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CircleCollider2D collider = (CircleCollider2D)this.gameObject.AddComponent<CircleCollider2D>();
+        collider.density = 1;
+        collider.isTrigger = false;
+        collider.enabled = true;        
 
-        Rigidbody2D rigidbody = (Rigidbody2D)this.gameObject.AddComponent<Rigidbody2D>();
-
-
+        
+        Rigidbody2D rigidbody = (Rigidbody2D)this.gameObject.AddComponent<Rigidbody2D>();        
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
         rigidbody.mass = 1;
-        /*rigidbody.simulated = true;
         rigidbody.useAutoMass = true;
+        /*rigidbody.simulated = true;
         
         rigidbody.drag = 0;
         rigidbody.angularDrag = 0.05f;
@@ -22,14 +25,9 @@ public class Circle : MonoBehaviour
         rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
         rigidbody.sleepMode = RigidbodySleepMode2D.StartAwake;*/
         rigidbody.sharedMaterial = new PhysicsMaterial2D();
-        rigidbody.sharedMaterial.friction = 0.4f;
-        rigidbody.sharedMaterial.bounciness = 0.66f;
+        rigidbody.sharedMaterial.friction = 0.66f;
+        rigidbody.sharedMaterial.bounciness = 0.76f;
 
-        CircleCollider2D collider = (CircleCollider2D)this.gameObject.AddComponent<CircleCollider2D>();
-        collider.density = 1;
-        collider.isTrigger = false;
-        collider.enabled = true;
-        collider.density = 1;
 
         Debug.Log("D");
         /*
@@ -54,6 +52,8 @@ public class Circle : MonoBehaviour
         //Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, new Vector3(this.transform.position.x, this.transform.position.y, Camera.main.transform.position.z), 0.1f);
         //Camera.main.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
         Camera.main.GetComponent<CameraOnLoad>().track = this.gameObject;
+        Rigidbody2D rigidbody = (Rigidbody2D)this.gameObject.GetComponent<Rigidbody2D>();
+        rigidbody.AddForce(new Vector2(Random.Range(-100, 100), Random.Range(-100, 100)));
         //Debug.Log("Klikk");
     }
 }

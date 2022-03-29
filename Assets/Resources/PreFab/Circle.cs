@@ -62,5 +62,4 @@ public class Circle : MonoBehaviour
         rigidbody.AddForce(new Vector2(Random.Range(-10000, 10000), Random.Range(-10000, 10000)));
         //Debug.Log("Klikk");
     }    
-
 }
